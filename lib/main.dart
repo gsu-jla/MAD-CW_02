@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
+// importing the details page to allow for a call for a switch in scenes
+import 'details.dart';
+
 // CW_02 - recipe book with app navigation
 // This page is homescreen
 
 void main() {
-  runApp(const MyApp());
+  runApp(const HomeScreen());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   // This widget is the root of your application.
   @override
