@@ -53,13 +53,26 @@ class _Details extends State<InitDetail> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
+
+        // back navigation in app bar
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back),
+            tooltip: 'Back to Recipe List',
+            onPressed: _toHome,
+          ),
+        ],
+
         title: Text(widget.title),
       ),
         body: Center(
           child: Column(
             children: <Widget>[
-              // runApp(const HomeScreen())
-              Text('Hello World!\ntest'),
+              Text('\n'),
+
+              // ingredients followed by recipe
+              Image.asset('Pancake_Ing.png'),
+              Image.asset('Pancake_Rec.png'),
               
               // separating button from content
               Text('\n'),
