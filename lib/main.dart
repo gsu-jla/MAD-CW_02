@@ -38,7 +38,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _toRecipe() {
+  void _toRecipe() { 
+    setState(() {
+      int recSelect = 1;
+      runApp(DetailsHome());
+    });
+  }
+  void _toRecipe0() { 
     setState(() {
       runApp(DetailsHome());
     });
@@ -71,7 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(   // This button is for switching dart
               onPressed: _toRecipe,
-              child: const Text('testing switch'),
+              child: const Text('Pancakes'),
+            ),
+            ElevatedButton(   // This button is for switching dart
+              onPressed: _toRecipe0,
+              child: const Text('Waffles'),
             ),
           ],
         ),

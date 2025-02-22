@@ -32,6 +32,8 @@ class InitDetail extends StatefulWidget {
 
   final String title;
 
+  static final int recSelect = 0;
+
   @override
   State<InitDetail> createState() => _Details();
 }
@@ -69,7 +71,7 @@ class _Details extends State<InitDetail> {
           child: Column(
             children: <Widget>[
               Text('\n'),
-
+              
               // ingredients followed by recipe
               Image.asset('Pancake_Ing.png'),
               Image.asset('Pancake_Rec.png'),
