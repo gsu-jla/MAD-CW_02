@@ -6,21 +6,70 @@ import 'main.dart';
 // this is the details dart file
 
 void main() {
-  runApp(const Details());
+  runApp(const HomeScreen());
 }
 
-class Details extends StatelessWidget {
-  const Details({super.key});
+class DetailsHome extends StatelessWidget {
+  const DetailsHome({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Recipe Details Page',
+      theme: ThemeData(
+        // This is the theme of the application
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const InitDetail(title: 'Recipe Details'),
+    );
+  }
+}
+
+class InitDetail extends StatefulWidget {
+  const InitDetail({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<InitDetail> createState() => _Details();
+}
+
+class _Details extends State<InitDetail> {
+  void _toHome() {
+    setState(() {
+      runApp(HomeScreen());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Recipe Details',
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
       ),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              // runApp(const HomeScreen())
+              Text('Hello World!\ntest'),
+              
+              // separating button from content
+              Text('\n'),
+              ElevatedButton( // this is to return to home dart
+                onPressed: _toHome,
+                child: const Text('Previous Page'),
+              ),
+            ],
+          ),
+        ),
     );
   }
 }
